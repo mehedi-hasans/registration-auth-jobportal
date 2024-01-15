@@ -70,3 +70,10 @@ class jobApplyModel(models.Model):
     
     def __str__(self):
         return f"{self.applicant.display_name} applied for {self.job.job_title}"
+
+
+class CareerModel(models.Model):
+    title = models.CharField(max_length=100)
+    careerImage = models.ImageField(upload_to='media/career', blank=True, null=True)
+    def __str__(self):
+        return self.title

@@ -5,29 +5,31 @@
 
 {% block content %}
 <div class="container mt-5">
-    <table class="table">
-        <thead class="table-dark">
-            <tr>
-                <th>Job Title</th>
-                <th>Location</th>
-                <th>Company</th>
-                <th>Applied at</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for i in applied_job %}
-            <tr>
-                <td>{{ i.job.job_title }}</td>
-                <td>{{ i.job.location }}</td>
-                <td>{{ i.job.company_name }}</td>
-                <td>{{ i.applied_at }}</td>
-                <td>
-                    <a href="{% url 'deletePage' i.id %}" class="btn btn-danger">Withdraw</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="rounded overflow-hidden shadow">
+        <table class="table p-4">
+            <thead class="table-dark">
+                <tr>
+                    <th>Job Title</th>
+                    <th>Location</th>
+                    <th>Company</th>
+                    <th>Applied at</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in applied_job %}
+                <tr>
+                    <td>{{ i.job.job_title }}</td>
+                    <td>{{ i.job.location }}</td>
+                    <td>{{ i.job.company_name }}</td>
+                    <td>{{ i.applied_at }}</td>
+                    <td>
+                        <a href="{% url 'deletePage' i.id %}" class="btn btn-danger">Withdraw</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock content %}

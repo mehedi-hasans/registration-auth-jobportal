@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render,redirect
 
-from portalApp.models import ApplicantProfile, RecruiterProfile
+from portalApp.models import ApplicantProfile, CareerModel, RecruiterProfile, job_model
 from .forms import UserForm,SignInForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
@@ -49,7 +49,13 @@ def SignIn(request):
 
 @login_required
 def home(request):
-    return render(request,"home.html")
+    jobView = job_model.objects.all()
+    career = CareerModel.objects.all()
+    context = {
+        'jobs': jobView,
+        'career': career,
+    }
+    return render(request,"home.html", context)
 
 
 

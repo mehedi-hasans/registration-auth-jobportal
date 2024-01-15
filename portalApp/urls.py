@@ -14,8 +14,10 @@ urlpatterns = [
     path('updatePage/',views.updatePage,name='updatePage'),
     #Job Apply
     path('applyPage/<str:myid>',views.applyPage,name='applyPage'),
-    path('Applied_Job_By_Applicants_Page/',views.Applied_Job_By_Applicants_Page,name='Applied_Job_By_Applicants_Page'),
+    path('Applied_Job_By_Applicant/',views.Applied_Job_By_Applicant,name='Applied_Job_By_Applicant'),
     #Recruiter See The job applicant
-    path('Post_or_Applied_Job_Page/',views.Post_or_Applied_Job_Page,name='Post_or_Applied_Job_Page'),
+    path('createdJob_byRecruiter/',views.createdJob_byRecruiter,name='Post_or_Applied_Job_Page'),
     path('applicant_list/<str:myid>',views.applicant_list,name='applicant_list'),
+    #Search Option
+    path('searchResultsPage/',views.searchResultsPage,name='searchResultsPage'),
 ]

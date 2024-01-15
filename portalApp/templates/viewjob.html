@@ -1,13 +1,19 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}View job{% endblock title %}
+{% block cover %}
+{% block slider %}
+    <img src="{% static 'img/6.png' %}" class="d-block w-100" alt="...">
+{% endblock slider %}
+{% endblock cover %}
 {% block content %}
 
 <section class="job-listings bg-light py-5">
     <div class="container">
-        <h2 class="text-center mb-4">Latest Job Listings</h2>
-        <ul class="list-unstyled">
+        <h2 class="text-center mb-4">Latest Job Here</h2>
+        <ul class="list-group">
             {% for job in jobs %}
-                <li class="mb-4 p-4 border rounded shadow">
+                <li class="mb-4 p-4 border rounded shadow list-group-item">
                     <h3 class="mb-2">{{ job.job_title }}</h3>
                     <p class="mb-1"><strong>Company:</strong> {{ job.company_name }}</p>
                     <p class="mb-1"><strong>Location:</strong> {{ job.location }}</p>

@@ -151,6 +151,7 @@ def updatePage(request):
         return redirect("viewjobPage")
     return render(request, 'viewjob.html')
 
+#Applicant
 #Apply Job Section
 @login_required
 def applyPage(request,myid):
@@ -178,7 +179,7 @@ def applyPage(request,myid):
     return render(request,'Applicant/applyJob.html',context)
 
 
-def Applied_Job_By_Applicants_Page(request):
+def Applied_Job_By_Applicant(request):
     job_seeker=request.user
     applied_job=jobApplyModel.objects.filter(applicant=job_seeker)
     context={
@@ -188,7 +189,7 @@ def Applied_Job_By_Applicants_Page(request):
 
 
 #Recruiter
-def Post_or_Applied_Job_Page(request):
+def createdJob_byRecruiter(request):
     current_user=request.user
     if current_user.user_type == 'Recruiter':
         posted_job = job_model.objects.filter(job_creator=current_user)
@@ -206,3 +207,20 @@ def applicant_list(request, myid):
         'applicants': applicants,
     }
     return render(request,"Recruiter/applicantList.html",context)
+
+
+#Search Option
+def searchResultsPage(request):
+    try:
+        query=request.GET.get("search_query")
+        if query:
+            jobs=job_model.objects.filter(job_title__icontains=query)
+        else:
+            jobs=[] 
+        context={
+            'query':query,
+            'jobs':jobs,
+        }
+        return render(request,'Applicant/search_results.html',context)
+    except Exception as e:
+        return render(request,'Applicant/error.html',{'error_message':str(e)})

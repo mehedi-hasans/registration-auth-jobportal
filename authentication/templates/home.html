@@ -6,5 +6,31 @@
 {% endblock title %}
 
 {% block content %}
-  <h1>Welcome {{user.user_type}}</h1>
+{% include "slider.html" %}
+
+<div class="container mt-5 py-4 bg-white">
+  <div class="row">
+    <h1 class="section__title font-bold text-center">WHAT CAREER AREA INTERESTS YOU?</h1>
+    <p class="section__sub-title text-center">
+Whoever you are, wherever you are, doing good is everyone’s business. Discover how you can be a part of that change by choosing a career path that interests you the most.
+      </p>
+  </div>
+
+  <div class="row mt-3">
+    {% for c in career %}
+    <div class="col-md-4 mb-4">
+      <div class="card shadow h-100 text-center py-5">
+          <img src="/{{c.careerImage}}" class="card-img-top img-fluid rounded-circle mx-auto" style="width: 150px; height: 150px;" alt="Job Title">
+          <div class="card-body">
+              <h2 class="program-card__title font-medium">{{c.title}}</h2>
+          </div>          
+      </div>
+  </div>
+  
+    {% endfor %}
+    <div class="mt-auto card-footer text-center">
+      <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#jobModal{{j.id}}">View All Jobs</a>
+  </div>
+  </div>
+</div>
 {% endblock content %}
