@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Add Job{% endblock title %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+    <form action="{% url 'updatePage' %}" method='POST'>
+        {% csrf_token %}
+        {% for i in job %}
+        <div class="mb-3">
+            <label for="jobId" class="form-label">Job Id:</label>
+            <input type="text" value="{{i.id}}" readonly class="form-control" id="jobId" name="jobId" required>
+        </div>
+        <div class="mb-3">
+            <label for="jobTitle" class="form-label">Job Title:</label>
+            <input type="text" value="{{i.job_title}}" class="form-control" id="jobTitle" name="jobTitle" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="companyName" class="form-label">Company Name:</label>
+            <input type="text" value="{{i.company_name}}" class="form-control" id="companyName" name="companyName" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="location" class="form-label">Location:</label>
+            <input type="text" value="{{i.location}}" class="form-control" id="location" name="location" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea class="form-control" id="description" name="description" rows="4" required>{{i.description}}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Update the Job</button>
+        <a class="btn btn-outline-success" href="{% url 'viewjobPage' %}">Cancel</a>
+        {% endfor %}
+    </form>
+</div>
+
+
+{% endblock content %}

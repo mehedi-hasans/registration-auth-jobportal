@@ -22,13 +22,13 @@
                         </div>
                         
                         {% if user.user_type == 'Applicant' %}
-                            <a href="" class="btn btn-primary">Apply Now</a>
+                            <a href="{% url 'applyPage' job.id %}" class="btn btn-primary">Apply Now</a>
                         {% else  %}
                             <a href="{% url 'home' %}" class="btn btn-primary">Details</a>
                         {% endif %}
                         
                         {% if user.user_type == 'Recruiter' and user.id == job.job_creator.id %}
-                            <a href="" class="btn btn-secondary">Edit</a>
+                            <a href="{% url 'editPage' job.id %}" class="btn btn-secondary">Edit</a>
                             <a href="{% url "deletePage" job.id %} " class="btn btn-danger">Delete</a>
                         {% endif %}
                     </div>

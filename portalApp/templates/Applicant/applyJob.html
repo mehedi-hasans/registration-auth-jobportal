@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Apply Job{% endblock title %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label for="skills" class="form-label">Skills:</label>
+            <input type="text" id="skills" name="skills" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="resume" class="form-label">Resume (PDF or Word):</label>
+            <input type="file" id="resume" name="resume" class="form-control" accept=".pdf, .doc, .docx" required>
+        </div>
+
+        <button type="submit" class="btn btn-success">Apply</button>
+    </form>
+</div>
+{% endblock content %}

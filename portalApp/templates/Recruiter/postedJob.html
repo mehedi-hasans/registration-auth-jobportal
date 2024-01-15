@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Posted job{% endblock title %}
+{% block content %}
+<div class="container mt-5">
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th>Job Title</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in posted_job %}
+            <tr>
+                <td>{{ i.job_title }}</td>
+                <td>{{ i.location }}</td>
+                <td>{{ i.description }}</td>
+                <td>{{ i.create_at }}</td>
+                <td>{{ i.update_at }}</td>
+                <td>
+                    <a href="{% url 'editPage' i.id %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'deletePage' i.id %}" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'applicant_list' i.id %}" class="btn btn-info">Applicants</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}

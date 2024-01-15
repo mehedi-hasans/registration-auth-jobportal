@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Add Job{% endblock title %}
+{% block content %}
+
+<div class="container mt-5">
+    <h2>Applicants for {{ job.job_title }}</h2>
+    <ul class="list-group">
+      {% for applicant in applicants %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div class="applicant-info">
+            <p class="applicant-name">Applicant: {{ applicant.applicant.display_name }}</p>
+            <p class="applicant-skills">Skills: {{ applicant.skills }}</p>
+            <p class="applicant-applied-at">Applied at: {{ applicant.applied_at }}</p>
+          </div>
+          <div class="resume-link">
+            <a href="{{ applicant.resume.url }}" target="_blank">View Resume</a>
+            <a href="#" class="btn btn-primary">Approve</a>
+            <a href="#" class="btn btn-danger">Delete</a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+</div>
+
+{% endblock content %}
