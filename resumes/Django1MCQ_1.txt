@@ -1,0 +1,426 @@
+1. Django is a Python-based ____.
+
+a.web framework
+b.video creating tool
+c.analysis tool
+d.desktop development platform
+
+2. Django is maintained by which organization/company?
+
+a.Oracle
+b.Microsoft Corporation
+c.Python Software Foundation
+d.Django Software Foundation
+
+3. What does MTV stand for in Django?
+
+a.model–template–views
+b.make–test–views
+c.model–template–verify
+d.mobile–template–verification
+
+4. Who is/are the original author(s) of Django?
+
+a.Pearu Peterson, Robert Kern, and Travis Oliphant
+b.Adrian Holovaty and Simon Willison
+c.Adrian Hallet and Simon Willison
+d.Larry Ellison, Bob Miner, and Ed Oates
+
+4.b
+
+
+5. Which command is used to create the first project in Django?
+
+a.django-admin startproject project_name
+b.django-admin startapp project_name
+c.django-admin create project_name
+d.django-admin createproject project_name
+
+6. By default, Django configuration uses which database?
+
+a.MySQL
+b.SQLite
+c.Oracle
+d.None of the above
+
+7. Which command is used to create an app in Django?
+
+a.py admin.py startapp-c app_name
+b.py manage.py startapp app_name
+c.py manage.py djangoapp app_name
+d.py manage.py createapp app_name
+
+8. Which is the correct command to start the Django development server on your system?
+
+a.py manage.py localhost
+b.py manage.py runatserver
+c.py manage.py createserver
+d.py manage.py runserver
+
+9. Which file is not a part of the Django project content?
+
+a.settings.py
+b.manage.py
+c.templates.py
+d.py manage.py runserver
+
+10. Django is written in which language?
+
+a.C++
+b.Python
+c.AngularJS
+d.Asp.Net
+
+11. Which Django functions are used to take http requests and return http responses?
+
+a.Django views
+b.Django request() and response()
+c.Django templates
+d.Both A and B
+
+12. In Django, data is created in ____.
+
+a.tables
+b.views
+c.templates
+d.objects
+
+
+13. In Django, data is created in objects, what are these objects called ____.
+
+a.models
+b.views
+c.templates
+d.database
+
+14. Which is the correct statement to import models in the Django project?
+
+a.from django import models
+b.from django.models import models
+c.from django.db import models
+d.None of the above
+
+15. Which is the correct statement to run migrate command in Django?
+
+a.run manage.py migrate
+b.py migrate
+c.py manage.py pymigrate
+d.py manage.py migrate
+
+16. Which command is used to create a Python shell?
+
+a.run shell
+b.py manage.py shell
+c.run py manage.py shell
+d.py manage.py djangoshell
+
+17. What is the correct syntax to use a variable in the Django template?
+
+a.{{ variable_name }}
+b.< variable_name >
+c.<< variable_name >>
+d." variable_name "
+
+18. Which Django file contains all the configuration of your Django installation?
+
+a.main.py
+b.setting.py
+c.djangosetting.py
+d.settings.py
+
+19. How you can turn off the debugging in Django's configuration file?
+
+a.DEBUG = false
+b.DEBUG = FALSE
+c.DEBUG = False
+d.DEBUGOFF = True
+
+20. Which template tag is used to create variables directly in the Django template?
+
+a.{% with %}
+b.<% with %>
+c.<< with >>
+d.{{ with }}
+
+21. Which Django template tag is used to return the first not empty variable?
+
+a.empty
+b.firstempty
+c.firstemptyvar
+d.firstof
+
+22. How many parameters do render() function take in Django?
+
+a.1
+b.2
+c.3
+d.4
+
+23. Which is the correct import statement to use the render() function in Django?
+
+a.from django.shortcuts import render
+b.from django import render
+c.from django.requests import render
+d.from httpresponses import render
+
+24. Which Django tag is used to write comments?
+
+a.{% startcomment %} ... {% endcomment %}
+b.{% comment %} ... {% endcomment %}
+c.{% initcomment %} ... {% endcomment %}
+d.{% start %} ... {% end %}
+
+25. Except Django comment tag, what can be used to write smaller comments?
+
+a.# ..
+b./* … *
+c.{{# ... #}}
+d.{# ... #}
+
+26. Which is the correct syntax to write comments in Django views?
+
+a.# ..
+b./* … *
+c.{{# ... #}}
+d{# ... #}
+
+27. Which Django tag is used to include a template inside the current template?
+
+a.allow
+b.insert
+c.import
+d.include
+
+28. Which Django keyword is used to send variables into the template?
+
+a.send
+b.go
+c.export
+d.with
+
+29. In Django QuertSet, which method is used to get all the records and fields of a given model?
+
+a.get()
+b.all()
+c.getall()
+d.bunch()
+
+30. In Django QuertSet, which method is used to get each object as a Python dictionary, with the names and values as key/value pairs?
+
+a.values()
+b.dictionary()
+c.getvalues()
+d.None of the above
+
+31. In Django QuertSet, which method is used to get the specified column?
+
+a.column_values()
+b.columnvalues()
+c.values_list()
+d.column_list()
+
+
+32. In Django QuertSet, which method is used to filter your search?
+
+a.filter()
+b.search()
+c.filter_all()
+d.filter_values()
+
+33. In Django QuertSet, how to add two search queries?
+
+a.By using the AND keyword
+b.By using the OR keyword
+c.By using the + symbol
+d.By using the comma separator
+
+34. Which method is used to sort a Django QuerySet?
+
+a.sort()
+b.sort_by()
+c.order_by()
+d.order()
+
+35. Which Django tag is used to insert the current date and time?
+
+a.date
+b.now
+c.datetime
+d.currentdatetime
+
+
+36. Django is a _____________ Python web framework.
+
+A. low-level
+B. mid-level
+C. high-level
+D. None of the above
+
+37. Django was created in the fall of?
+
+A. 2001
+B. 2003
+C. 2005
+D. 2007
+
+38. Which of the following are Advantages of Django?
+
+A. Object-Relational Mapping (ORM) Support
+B. Multilingual Support
+C. Administration GUI
+D. Framework Support
+
+39. Django supports the ___________ pattern.
+
+A. MVI
+B. MVP
+C. MVC
+D. MVZ
+
+40. MVC pattern is based on _______ components.
+
+A. 2
+B. 3
+C. 4
+D. 5
+
+41. MVT Stands for?
+
+A. Model-View-Template
+B. Model-View-Table
+C. Map-View-Template
+D. Main-View-Template
+
+42. Which commands use to create a project in Django?
+
+A. $ django-admin createproject project_name
+B. $ django-admin startproject project_name
+C. $ django startproject project_name
+D. $ django createproject project_name
+
+43. Which file is kind of your project local django-admin for interacting with your project via command line?
+
+A. settings.py
+B. admin.py
+C. models.py
+D. manage.py
+
+44. Which of the following is used If you need to deploy your project over WSGI?
+
+A. settings.py 
+B. wsgi.py
+C. urls.py
+D. __init__.py
+
+45. View response can be the ?
+
+A. HTML contents
+B. 404 error
+C. XML document
+D. All of the above
+
+46. In Django, views have to be created in the app views.py file.
+
+A. TRUE
+B. FALSE
+C. Can be true or false
+D. Can not say
+
+47. Render function takes ___________ parameters.
+
+A. 1
+B. 2
+C. 3
+D. 4
+
+48. A variable in django looks like this: _________________.
+
+A. ((variable))
+B. {{variable}}
+C. [[variable]]
+D. [{variable}]
+
+49. Which filter will truncate the string, so you will see only the first 80 words?
+
+A. {{string|truncatewords}}
+B. {{string|truncate:80}}
+C. {{string|truncate}}
+D. {{string|truncatewords:80}}
+
+50. How many kinds of HTTP requests there in Django?
+
+A. 2
+B. 3
+C. 4
+D. 5
+
+Django MCQ Answer:
+1.a
+2.d
+3.a
+4.b
+5.a
+6.b
+7.b
+8.d
+9.c
+10.b
+11.a
+12.d
+13.a
+14.c
+15.d
+16.b
+17.a
+18.d
+19.c
+20.a
+21.d
+22.c
+23.a
+24.b
+25.d
+26.a
+27.d
+28.d
+29.b
+30.a
+31.c
+32.a
+33.d
+34.c
+35.c
+36.c
+37.b
+38.d
+39.c
+40.b
+41.a
+42.c
+43.d
+44.b
+45.d
+46.a
+47.c
+48.b
+49.d
+50.a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+

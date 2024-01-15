@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Edit Profile{% endblock title %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header bg-primary text-white text-center">
+            <h1>Update Profile</h1>
+            <p>
+                {% if messages %}
+                    {% for message in messages %}
+                        {% if message.tags == 'success' %}
+                            <p>{{ message }}</p>
+                        {% endif %}
+                        {% if message.tags == 'error' %}
+                            <p>{{ password_not_matched }}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </p>
+        </div>
+        <div class="card-body">
+            <form action="{% url 'EditProfilePage' %}" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="user_id" class="form-label">UserID:</label>
+                    <input type="text" id="user_id" name="UserID" value="{{ request.user.id }}" class="form-control" required readonly>
+                </div>
+            
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="first_name" class="form-label">First Name:</label>
+                        <input type="text" id="first_name" name="first_name" value="{{ request.user.first_name }}" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="last_name" class="form-label">Last Name:</label>
+                        <input type="text" id="last_name" name="last_name" value="{{ request.user.last_name }}" class="form-control" required>
+                    </div>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="display_name" class="form-label">Display Name:</label>
+                    <input type="text" id="display_name" name="display_name" value="{{ request.user.display_name }}" class="form-control" required>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username:</label>
+                    <input type="text" id="username" name="username" value="{{ request.user.username }}" class="form-control" required readonly>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" value="{{ request.user.email }}" class="form-control" required readonly>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="profile_picture" class="form-label">Profile Picture:</label>
+                    <input type="file" id="profile_picture" name="image" class="form-control">
+                </div>
+            
+                {% if user.user_type == 'Applicant' %}
+                    <div class="mb-3">
+                        <label for="skills" class="form-label">Skills:</label>
+                        <input type="text" id="skills" name="skills" value="{{ request.user.jobseekerprofile.skills }}" class="form-control">
+                    </div>
+            
+                    <div class="mb-3">
+                        <label for="resume" class="form-label">Resume:</label>
+                        <input type="file" id="resume" name="resume" class="form-control">
+                    </div>
+                {% endif %}
+            
+                <div class="mb-3">
+                    <label for="about" class="form-label">About:</label>
+                    <textarea name="about" id="about" class="form-control" cols="30" rows="10">{{ user.about }}</textarea>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+            
+                <div class="mb-3">
+                    <label for="confirm_password" class="form-label">Confirm Password:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                </div>
+            
+                <button type="submit" class="btn btn-primary">Update Profile</button>
+            </form>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script>
+                // Enable Bootstrap validation
+                (function () {
+                    'use strict';
+                    var forms = document.querySelectorAll('.needs-validation');
+                    Array.from(forms).forEach(function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (!form.checkValidity()) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                })();
+            </script>
+            
+        </div>
+    </div>
+</div>
+{% endblock content %}

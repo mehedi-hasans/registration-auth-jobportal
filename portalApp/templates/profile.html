@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock title %}Profile
+
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Profile Page</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    {% if user.profile_image %}
+                        <img class="profile-picture img-fluid rounded-circle mb-3" src="{{ user.profile_image.url }}" alt="Profile Picture">
+                    {% else %}
+                        <img class="profile-picture img-fluid rounded-circle mb-3" src="{% static 'img/default.jpg' %}" alt="Default Profile Picture">
+                    {% endif %}
+
+                    {% include "message.html" %}
+
+                    <h3>{{ request.user.display_name }}</h3>
+                    <p class="mb-1">{{ request.user.email }}</p>
+                    <p>{{ request.user.about }}</p>
+                    <a href="{% url 'EditProfilePage' %}" class="btn btn-primary">Edit Profile</a>
+                    <a href="#" class="btn btn-secondary">Change Password</a>
+
+                    {% if user.user_type == 'Recruiter' %}
+                        <a href="" class="btn btn-info">Created Job</a>
+                    {% elif user.user_type == 'Applicant' %}
+                        <a href="" class="btn btn-info">Applied Job</a>
+                        {% if request.user.jobseekerprofile.resume %}
+                            <a href="{{ request.user.jobseekerprofile.resume.url }}" class="btn btn-dark" target="_blank">View Resume</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="mb-4">User Type: {{ request.user.user_type }}</h2>
+
+                    {% if request.user.jobseekerprofile %}
+                        <h2 class="mb-3">Skills:</h2>
+                        <ul class="list-group">
+                            <li class="list-group-item">{{ request.user.jobseekerprofile.skills }}</li>
+                            <!-- Add more skills dynamically if needed -->
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

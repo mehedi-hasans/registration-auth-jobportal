@@ -1,0 +1,89 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home' %}">LOGO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          {% if user.user_type == 'Recruiter' %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add_job_Page' %}">Add Job</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url "viewjobPage" %}" class="nav-link">View Job</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'ProfilePage' %}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% elif user.user_type == 'Applicant' %}
+          <li class="nav-item">
+            <a href="{% url "viewjobPage" %}" class="nav-link">View Job</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'ProfilePage' %}">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="">Applied Job</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a href="{% url "viewjobPage" %}" class="nav-link">View Job</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+
+
+
+          {% endif %}
+
+
+
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+  
+{% comment %}    
+  {% block content %}
+
+<nav>
+
+ 
+   {% if user.user_type == 'recruiter' %}
+   
+   <a href="#home">Home</a>
+   <a href=" {% url "add_job_Page" %}" >Add Job</a>
+   <a href="{% url "viewjobPage" %}">View Job</a>
+   <a href="{% url "ProfilePage" %}">Profile</a>
+   <a href="{% url "logoutPage" %}">Logout</a>
+
+  
+
+    {% elif user.user_type == 'jobseeker' %}
+    <a href="#home">Home</a>
+    <a href="{% url "viewjobPage" %}">View Job</a>
+    <a href="{% url "ProfilePage" %}">Profile</a>
+    <a href="{% url "logoutPage" %}">Logout</a>
+   {% endif %}
+
+</nav>
+{% endblock content %} {% endcomment %}

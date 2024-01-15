@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}View job{% endblock title %}
+{% block content %}
+
+<section class="job-listings bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Latest Job Listings</h2>
+        <ul class="list-unstyled">
+            {% for job in jobs %}
+                <li class="mb-4 p-4 border rounded shadow">
+                    <h3 class="mb-2">{{ job.job_title }}</h3>
+                    <p class="mb-1"><strong>Company:</strong> {{ job.company_name }}</p>
+                    <p class="mb-1"><strong>Location:</strong> {{ job.location }}</p>
+                    <p class="mb-1"><strong>Description:</strong> {{ job.description }}</p>
+                    <div class="">
+                        <div>
+                            <p class="mb-1"><strong>Created By:</strong> {{ job.job_creator }}</p>
+                            <p class="mb-1"><strong>Created Time:</strong> {{ job.created_at }}</p>
+                            {% if job.update_at and job.created_at != job.update_at %}
+                                <p class="mb-1"><strong>Updated Time:</strong> {{ job.update_at }}</p>
+                            {% endif %}
+                        </div>
+                        
+                        {% if user.user_type == 'Applicant' %}
+                            <a href="" class="btn btn-primary">Apply Now</a>
+                        {% else  %}
+                            <a href="{% url 'home' %}" class="btn btn-primary">Details</a>
+                        {% endif %}
+                        
+                        {% if user.user_type == 'Recruiter' and user.id == job.job_creator.id %}
+                            <a href="" class="btn btn-secondary">Edit</a>
+                            <a href="{% url "deletePage" job.id %} " class="btn btn-danger">Delete</a>
+                        {% endif %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+
+
+{% endblock content %}
