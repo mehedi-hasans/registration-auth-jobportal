@@ -20,4 +20,5 @@ urlpatterns = [
     path('applicant_list/<str:myid>',views.applicant_list,name='applicant_list'),
     #Search Option
     path('searchResultsPage/',views.searchResultsPage,name='searchResultsPage'),
+    path('test/',views.test,name='test'),
 ]

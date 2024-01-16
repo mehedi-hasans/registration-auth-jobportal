@@ -52,6 +52,7 @@ class job_model(models.Model):
     company_name = models.CharField(max_length=100, null=True)
     location = models.CharField(max_length=100, null=True)
     description = models.TextField()
+    job_image = models.ImageField(upload_to='job_image/', null=True)
     create_at = models.DateTimeField(auto_now_add=True, null=True)
     update_at = models.DateTimeField(auto_now=True, null=True)
     job_creator = models.ForeignKey(Custom_User, on_delete=models.CASCADE)

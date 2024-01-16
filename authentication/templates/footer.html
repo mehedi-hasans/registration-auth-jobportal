@@ -1,28 +1,41 @@
-<div class="container">
+<!-- Footer -->
+{% load static %}
+<footer class="bg-dark py-4">
+  <div class="container">
     <div class="row">
-      <div class="col-lg-4 mb-4 mb-lg-0">
-        <h5>About Us</h5>
-        <p>Your Job Portal is dedicated to connecting employers with talented professionals. We strive to make the job search and hiring process seamless for everyone.</p>
-      </div>
-      <div class="col-lg-4 mb-4 mb-lg-0">
-        <h5>Quick Links</h5>
+      <!-- Company Logo -->
+      <!-- Company Logo -->
+<div class="col-md-3 d-flex align-items-center">
+  <img src="{% static '/img/logo.png' %}" alt="Company Logo" class="img-fluid w-50">
+</div>
+
+
+      <!-- Jobseeker Links -->
+      <div class="col-md-3">
+        <h5 class='text-white'>For Jobseekers</h5>
         <ul class="list-unstyled">
-          <li><a href="{% url 'home' %}" class="text-white">Home</a></li>
-          <li><a href="#" class="text-white">Jobs</a></li>
-          <li><a href="#" class="text-white">Employers</a></li>
-          <li><a href="#" class="text-white">Candidates</a></li>
-          <li><a href="#" class="text-white">Contact Us</a></li>
+          <li><a href="#" class="text-light">Search Jobs</a></li>
+          <li><a href="#" class="text-light">Upload Resume</a></li>
+          <li><a href="#" class="text-light">Create Account</a></li>
         </ul>
       </div>
-      <div class="col-lg-4">
-        <h5>Contact Us</h5>
-        <p>Email: informmehedi@gmail.com</p>
-        <p>Phone: (123) 456-7890</p>
+
+      <!-- Recruiter Links -->
+      <div class="col-md-3">
+        <h5 class='text-white'>For Recruiters</h5>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-light">Post a Job</a></li>
+          <li><a href="#" class="text-light">Search Resumes</a></li>
+          <li><a href="#" class="text-light">Recruiter Account</a></li>
+        </ul>
       </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col">
-        <p class="text-center">© 2023 Your Job Portal. All rights reserved.</p>
+
+      <!-- Contact Information -->
+      <div class="col-md-3">
+        <h5 class='text-white'>Contact Us</h5>
+        <p class="text-light">Email: info@example.com</p>
+        <p class="text-light">Phone: +1 (123) 456-7890</p>
       </div>
     </div>
   </div>
+</footer>

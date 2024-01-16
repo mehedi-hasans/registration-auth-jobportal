@@ -6,6 +6,8 @@ from .models import ApplicantProfile, job_model, jobApplyModel
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import update_session_auth_hash
 # Create your views here.
+def test(request):
+    return render(request, 'test.html')
 @login_required
 def ProfilePage(request):
     user=request.user
@@ -99,13 +101,15 @@ def add_job_Page(request):
         companyName=request.POST.get('companyName')
         location=request.POST.get('location')
         description=request.POST.get('description')
-
+        image = request.FILES.get("job_image")
+        print('this is josdkfjsdlkfjsfk', image)
         job=job_model(
             job_title=jobTitle,
             company_name=companyName,
             location=location,
             description=description,
             job_creator=user,
+            job_image=image,
         )
         job.save()
         return redirect("viewjobPage")

@@ -17,11 +17,11 @@
                     <h3 class="mb-2">{{ job.job_title }}</h3>
                     <p class="mb-1"><strong>Company:</strong> {{ job.company_name }}</p>
                     <p class="mb-1"><strong>Location:</strong> {{ job.location }}</p>
-                    <p class="mb-1"><strong>Description:</strong> {{ job.description }}</p>
+                    <p class="mb-1"><strong>Description:</strong> {{ job.description | truncatewords:70 }}</p>
                     <div class="">
                         <div>
                             <p class="mb-1"><strong>Created By:</strong> {{ job.job_creator }}</p>
-                            <p class="mb-1"><strong>Created Time:</strong> {{ job.created_at }}</p>
+                            <p class="mb-1"><strong>Created Time:</strong> {{ job.create_at }}</p>
                             {% if job.update_at and job.created_at != job.update_at %}
                                 <p class="mb-1"><strong>Updated Time:</strong> {{ job.update_at }}</p>
                             {% endif %}

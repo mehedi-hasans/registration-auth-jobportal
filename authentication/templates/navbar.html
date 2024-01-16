@@ -1,56 +1,109 @@
 {% load static %}
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark border-bottom p-md-0">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTop4"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTop4">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+              <i class="bi bi-translate"></i> Language
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">English</a></li>
+              <li><a class="dropdown-item" href="#">Arabic</a></li>
+              <li><a class="dropdown-item" href="#">Russian</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+              <i class="bi bi-currency-exchange"></i> USD
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">EUR</a></li>
+              <li><a class="dropdown-item" href="#">AED</a></li>
+              <li><a class="dropdown-item" href="#">RUBL</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="bi bi-envelope-fill"></i> Email
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="bi bi-phone-fill"></i> Call us
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="{% url 'home' %}"><img class='w-25' src="{% static '/img/logo.png' %}" alt="f"></a>
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img class='w-25' src="{% static '/img/logo.png' %}" alt="Logo">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                  <a class="nav-link active" href="{% url 'home' %}">Home</a>
-              </li>
-              {% if user.user_type == 'Recruiter' %}
-                  <li class="nav-item">
-                      <a class="nav-link" href="{% url 'add_job_Page' %}">Add Job</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="{% url "viewjobPage" %}" class="nav-link">View Job</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="{% url 'ProfilePage' %}">Profile</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                  </li>
-              {% elif user.user_type == 'Applicant' %}
-                  <li class="nav-item">
-                      <a href="{% url "viewjobPage" %}" class="nav-link">View Job</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="{% url 'ProfilePage' %}">Profile</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="{% url 'Applied_Job_By_Applicant' %}">Applied Job</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-                  </li>
-              {% else %}
-                  <li class="nav-item">
-                      <a href="{% url "viewjobPage" %}" class="nav-link">View Job</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="{% url 'login' %}">Login</a>
-                  </li>
-              {% endif %}
-          </ul>
-          {% if user.user_type == 'Applicant' %}
-              <form method="GET" action="{% url 'searchResultsPage' %}" class="search-form d-flex" role="search">
-                  <input type="text" name="search_query" placeholder="Search Jobs" class="form-control me-2" aria-label="Search">
-                  <button type="submit" class="btn btn-outline-light">Search</button>
-              </form>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'home' %}">Home</a>
+          </li>
+          {% if user.user_type == 'Recruiter' %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'add_job_Page' %}">Add Job</a>
+          </li>
+          <li class="nav-item">
+            <a href="{% url "viewjobPage" %}" class="nav-link">View Job</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'ProfilePage' %}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% elif user.user_type == 'Applicant' %}
+          <li class="nav-item">
+            <a href="{% url "viewjobPage" %}" class="nav-link">View Job</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'ProfilePage' %}">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'Applied_Job_By_Applicant' %}">Applied Job</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a href="{% url "viewjobPage" %}" class="nav-link">View Job</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
           {% endif %}
+        </ul>
+        {% if user.user_type == 'Applicant' %}
+        <form method="GET" action="{% url 'searchResultsPage' %}" class="d-flex ms-3">
+            <div class="input-group">
+              <input type="text" name="search_query" class="form-control" placeholder="Search Jobs" aria-label="Search Jobs">
+              <button type="submit" class="btn btn-outline-light">
+                <i class="bi bi-search"></i> Search
+              </button>
+            </div>
+          </form>
+          
+        {% endif %}
       </div>
-  </div>
-</nav>
+    </div>
+  </nav>
+  
